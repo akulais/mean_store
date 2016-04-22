@@ -1,0 +1,30 @@
+<title>Dashboard</title>
+<link rel='stylesheet' href='./static/dashboard_style.css'>
+<div ng-controller="dashboardController">
+<div id="filter"><input type="text" ng-model="filter_name" placeholder="search..."></div>
+
+<div class="product" ng-repeat="product in products | filter: filter_name | limitTo: term ? products.length : 4">
+    <img src='{{ product.image }}' style="width: 200px;height: 200px"><br>
+    <p style="color: green">{{ product.name }}</p>
+    <p>({{ product.qty }} left)</p>
+    </div>
+
+<span ng-click="term = !term"><u>Show more...</u></span>
+
+<div id="orders">
+<h1>Recent Orders</h1>
+	<div ng-repeat='order in orders | orderBy : "-created_at" | limitTo: recent ? orders.length : 3'>
+		<p>{{ order.name }} purchased {{ order.qty }} {{ order.product }} ( <span am-time-ago='order.created_at'></span> )</p>
+		</div>
+		</div>
+	<span ng-click="recent = !recent"><u>Show all orders</u></span>
+
+
+
+<h1>New Customers</h1>
+	<div ng-repeat='customer in customers | orderBy : "-created_at" | limitTo: people ? customers.length : 3'>
+		<p>{{ customer.name }} joined the store.  ( <span am-time-ago='customer.created_at'></span>) </p>
+	</div>
+	<span ng-click="people = !people"><u>Show all customers</u></span>
+
+</div>

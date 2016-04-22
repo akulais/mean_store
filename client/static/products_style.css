@@ -1,0 +1,27 @@
+body {
+	background-color: gray;
+	display: inline-block;
+}
+
+.product {
+	border: 4px double black;
+	padding: 5px;
+	display: inline-block;
+	margin: 5px;
+}
+.entry {
+	width: 400px;
+	padding: 10px;
+	margin-left: 20px;
+}
+.entry label {
+	width: 150px;
+	text-align: right;
+	margin-right: 20px;
+	padding: 5px;
+	display: inline-block;
+}
+.entry input {
+	display: inline-block;
+	margin-right: 20px;
+}

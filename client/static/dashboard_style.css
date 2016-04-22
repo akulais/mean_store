@@ -1,0 +1,22 @@
+body {
+	background-color: gray;
+	display: inline-block;
+}
+
+#filter {
+	margin: 25px;
+	width: 100%;
+}
+.product {
+	border: 4px double black;
+	padding: 5px;
+	display: inline-block;
+	margin: 5px;
+	display: inline-block;
+}
+
+#orders {
+	width: 100%;
+	height: 300px;
+	overflow-y: auto;
+}

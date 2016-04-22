@@ -1,0 +1,51 @@
+<title>Orders</title>
+<link rel='stylesheet' href='./static/orders_style.css'>
+<div ng-controller="orderController">
+    <h1>Add a new order</h1>
+    <form>
+    Customers <select ng-model='orders.name'>
+    			<option ng-repeat='customer in customers' value="{{ customer.name }}">{{ customer.name }}</option>
+    			</select>
+				
+	Order quantity<select ng-model='orders.qty' name="qty">
+    				<option value="1">1</option>
+    				<option value="2">2</option>
+    				<option value="3">3</option>
+    				<option value="4">4</option>
+    				<option value="5">5</option>
+    				<option value="6">6</option>
+    				<option value="7">7</option>
+    				<option value="8">8</option>
+    				<option value="9">9</option>
+    				<option value="10">10</option>
+    			</select>
+
+    Product choice<select ng-model='orders.product' name="product">
+                    <option ng-repeat='product in products' value="{{ product.name }}">{{ product.name }}</option>
+                    </select>
+
+    <input type="submit" ng-click="addOrder()" value="Order">
+    <input type="text" ng-model="filter_name" placeholder="search name...">
+    </form>
+<div id="table">
+    <table>
+        <thead>
+            <tr>
+                <td>Customer name</td>
+                <td>Product</td>
+                <td>Quantity</td>
+                <td>Date</td>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr ng-repeat="order in orders | filter: filter_name">
+                <td>{{ order.name }}</td>
+                <td>{{ order.product }}</td>
+                <td>{{ order.qty }}</td>
+                <td style="color: blue">{{ order.created_at | date : format : timezone }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>

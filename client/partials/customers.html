@@ -1,0 +1,28 @@
+<title>Customers</title>
+<link rel='stylesheet' href='./static/customers_style.css'>
+<div ng-controller="customerController">
+<h1><u>Add a new customer</u></h1>
+<p style="color: red" style="font-weight: bold">{{ error.message }}</p><br>
+    Customers name:<input type="text" ng-model="customers.name" placeholder="name">
+        <input type="submit" ng-click="addCustomer()" value="Add">
+    <input type="text" ng-model="filter_name" placeholder="search name...">
+<div id="table">
+    <table>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Created Date</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr ng-repeat="customer in customers | filter: filter_name">
+                <td>{{ customer.name }}</td>
+                <td style="color: blue">{{ customer.created_at | date : format : timezone }}</td>
+                <td><a ng-click="delete(customer)" style='color:red'><u>Remove</u></a></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
